@@ -1,0 +1,69 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plastic Pollution Predictor</title>
+    <script src="https://kit.fontawesome.com/d36d0a95a4.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="has-background-dark">
+    <div id="top">
+        <p class="has-text-centered is-size-1 has-text-white">Plastic Pollution Predictor</p>
+        <p class="has-text-centered is-size-4 has-text-white">For this project, we wanted to examine the amount of plastic pollution that exists in our oceans, and be able to predict how large of an issue it will be in the future. To try and answer this, we worked to develop a web application that allows you to input values for a theoretical country to see if the waste contribution would be a problem for the future.</p>
+    </div>
+    <br />
+    <div id="form">
+        <form method="POST" action="/">
+            <div class="field has-addons-centered">
+                <label class="label has-text-white has-text-centered">Total Plastic Produced (mil. tonnes)</label>
+                <div class="control mx-5">
+                    <input type="text" class="input" name="plasticproduced">
+                </div>
+            </div>
+    
+            <div class="field has-addons-centered">
+                <label class="label has-text-white has-text-centered">Waste per Person per Day (kg)</label>
+                <div class="control mx-5">
+                    <input type="text" class="input" name="wasteperperson">
+                </div>
+            </div>
+    
+            <div class="field has-addons-centered">
+                <label class="label has-text-white has-text-centered">Population</label>
+                <div class="control mx-5">
+                    <input type="text" class="input" name="population">
+                </div>
+            </div>
+            
+            <div class="has-text-centered">
+                <button class="button is-success" id="submit">
+                    <span class="icon">
+                      <i class="far fa-paper-plane"></i>
+                    </span>
+                    <span>Submit</span>
+                  </button>
+            </div>
+        </form>
+    </div>
+    <br />
+    <div id="result">
+        {% with messages = get_flashed_messages(category_filter=["error"]) %}
+        {% if messages %}
+        <div class="box has-background-danger">
+            {{messages[0]}}
+        </div>
+        {% endif %}
+        {% endwith %}
+
+        {% with messages = get_flashed_messages(category_filter=["success"]) %}
+        {% if messages %}
+        <div class="box has-background-success">
+            {{messages[0]}}
+        </div>
+        {% endif %}
+        {% endwith %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,19 @@
+#top {
+    width: 1200px;
+    margin: auto;
+}
+
+#form {
+    width: 400px;
+    margin: auto;
+}
+
+#submit {
+    width: auto;
+    margin: auto;
+}
+
+#result {
+    width: 400px;
+    margin: auto;
+}
