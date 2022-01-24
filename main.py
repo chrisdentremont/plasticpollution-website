@@ -3,7 +3,7 @@ from data import calculate
 
 app = Flask(__name__)
 
-app.config['SECRET_KEY'] = 'DIHP@*Q(HDpQHDoiAJFoliHW'
+app.config['SECRET_KEY'] = 's3cr3t'
 
 @app.route('/')
 def index():
